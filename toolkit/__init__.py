@@ -45,7 +45,7 @@ class ToolKit(commands.Cog):
         command = self.bot.get_command(command)
         if not command:
             return await ctx.send(f"No command found matching `{command}`.")
-        await ctx.send(f"Docstring for `{ctx.clean_prefix}{command}`\n\"{command.format_shortdoc_for_context}\"")
+        await ctx.send(f"Docstring for `{ctx.clean_prefix}{command}`\n\"{command.format_shortdoc_for_context(ctx)}\"")
 
     @tk.command()
     async def invoke(self, ctx, command: str):
