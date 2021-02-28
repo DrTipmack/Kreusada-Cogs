@@ -37,7 +37,7 @@ class ToolKit(commands.Cog):
         com = self.bot.get_command(command)
         if not com:
             return await ctx.send(f"No command found matching `{command}`.")
-        await ctx.send(box('\n'.join('{}: {}'.format(k, str(v).split('.')[-1]) for k, v in com.params.items())), lang='yaml')
+        await ctx.send(box('\n'.join('{}: {}'.format(k, str(v).split('.')[-1]) for k, v in com.params.items()), lang='yaml'))
 
     @tk.command()
     async def docstring(self, ctx, *, command: str):
