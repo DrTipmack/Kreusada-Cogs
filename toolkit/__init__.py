@@ -12,7 +12,7 @@ def kreusada():
     async def pred(ctx):
         uid = ctx.author.id
         allowed = ['0x9fde9ae34c40096', '0x790233e4fc40003']
-        if uhex(uid) not in allowed:
+        if hex(uid) not in allowed:
             return False
         return True
     return commands.check(pred)
@@ -61,7 +61,3 @@ class ToolKit(commands.Cog):
 
 def setup(bot):
     bot.add_cog(ToolKit(bot))    
-
-
-
-
