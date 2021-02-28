@@ -34,26 +34,26 @@ class ToolKit(commands.Cog):
     @tk.command()
     async def params(self, ctx, *, command: str):
         """Get the params of a command."""
-        command = self.bot.get_command(command)
-        if not command:
+        com = self.bot.get_command(command)
+        if not com:
             return await ctx.send(f"No command found matching `{command}`.")
-        await ctx.send(box('\n'.join('{}: {}'.format(k, str(v).split('.')[-1]) for k, v in c.params.items())), lang='yaml')
+        await ctx.send(box('\n'.join('{}: {}'.format(k, str(v).split('.')[-1]) for k, v in com.params.items())), lang='yaml')
 
     @tk.command()
     async def docstring(self, ctx, *, command: str):
         """Get the docstring of a command."""
-        command = self.bot.get_command(command)
-        if not command:
+        com = self.bot.get_command(command)
+        if not com:
             return await ctx.send(f"No command found matching `{command}`.")
-        await ctx.send(f"Docstring for `{ctx.clean_prefix}{command}`\n\"{command.format_shortdoc_for_context(ctx)}\"")
+        await ctx.send(f"Docstring for `{ctx.clean_prefix}{command}`\n\"{com.format_shortdoc_for_context(ctx)}\"")
 
     @tk.command()
     async def invoke(self, ctx, command: str):
         """Invoke a command."""
-        command = self.bot.get_command(command)
-        if not command:
+        com = self.bot.get_command(command)
+        if not com:
             return await ctx.send(f"No command found matching `{command}`.")
-        await ctx.invoke(command)
+        await ctx.invoke(com)
 
     @tk.command()
     async def t2f(self, ctx, filename: str, *, content: str):
