@@ -15,7 +15,7 @@ class CompositeMetaClass(type(commands.Cog), type(ABC)):
     pass
     
 
-class Marvel(CEO, TZ, Mjolnir, Decorators commands.Cog, metaclass=CompositeMetaClass):
+class Marvel(CEO, TZ, Mjolnir, Decorators, commands.Cog, metaclass=CompositeMetaClass):
     """Marvel commands built for WALL-E."""
     
     def __init__(self, bot: Red):
