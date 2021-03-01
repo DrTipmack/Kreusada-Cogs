@@ -1,14 +1,15 @@
-from redbot.core import commands
+from redbot.core import commands, Config
 
-allowed = [
-    '0o51252007112140000074',
-    '0o21554327060500400026',
-]
+from .abc import MixinMeta
 
-def limit_guilds():
-    async def pred(ctx):
-        g = ctx.guild.id
-        if oct(g) not in allowed:
-            return False
-        return True
-    return commands.check(pred)
+class Pred(MixinMeta):
+    pass
+
+    def limit_guilds():
+        async def pred(ctx):
+            allowed = await self.config.allowlist()
+            g = ctx.guild.id
+            if oct(g) not in allowed:
+                return False
+            return True
+        return commands.check(pred)

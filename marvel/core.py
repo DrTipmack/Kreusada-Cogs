@@ -24,6 +24,9 @@ class Marvel(CEO, TZ, Mjolnir, commands.Cog, metaclass=CompositeMetaClass):
             IDENTIFIER, 
             force_registration=True
         )
+        self.config.register_global(
+            allowlist=[],
+        )
         self.config.register_guild(
             timezone=None,
             alliance_name=None,
