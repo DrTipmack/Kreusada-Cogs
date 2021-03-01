@@ -15,7 +15,7 @@ IDENTIFIER = 3249832743924
 class CompositeMetaClass(type(commands.Cog), type(ABC)):
     pass
     
-@limit_guilds()
+
 class Marvel(CEO, TZ, Mjolnir, commands.Cog, metaclass=CompositeMetaClass):
     """Marvel commands built for WALL-E."""
     
