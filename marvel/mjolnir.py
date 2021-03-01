@@ -3,7 +3,7 @@ import asyncio
 import random
 
 from .abc import MixinMeta
-from .decorators import limit_guilds
+from .core import limit_guilds
 from .menus import MjolnirMenu, MjolnirPages
 
 from redbot.core import commands, Config

@@ -3,7 +3,7 @@ import discord
 from redbot.core import commands, checks, Config
 
 from .abc import MixinMeta
-from .decorators import limit_guilds
+from .core import limit_guilds
 
 TZ_LIST = (
     'PST', 'MST', 'CST', 'EST', 'BST', 'GMT', 'UTC', 'CET',

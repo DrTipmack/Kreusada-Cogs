@@ -1,5 +1,5 @@
 from .abc import MixinMeta
-from .decorators import limit_guilds
+from .core import limit_guilds
 
 import discord
 import random
