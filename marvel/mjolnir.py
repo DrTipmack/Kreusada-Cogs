@@ -11,10 +11,12 @@ from redbot.core.utils.chat_formatting import pagify
 class Mjolnir(MixinMeta):
     """Attempt to lift Thor's hammer!"""
 
+    @limit_guilds()
     @commands.group()
     async def liftstats(self, ctx):
         """Get the trylift leaderboard, and your stats."""
 
+    @limit_guilds()
     @liftstats.command()
     async def lifted(self, ctx):
         """Shows how many times you've lifted the hammer."""
@@ -25,6 +27,7 @@ class Mjolnir(MixinMeta):
             sending = f"You have lifted Mjolnir {lifted} times."
         await ctx.send(content=sending)
 
+    @limit_guilds()
     @commands.cooldown(1, 60.0, commands.BucketType.user)
     @commands.command()
     async def trylift(self, ctx):
@@ -41,6 +44,7 @@ class Mjolnir(MixinMeta):
                 "You've got this!"))
         await ctx.send(content=content)
 
+    @limit_guilds()
     @liftstats.command()
     async def liftedboard(self, ctx):
         """Shows the leaderboard for those who have lifted the hammer."""
@@ -64,6 +68,3 @@ class Mjolnir(MixinMeta):
             return await ctx.send(embed=embed)
         menu = MjolnirMenu(source=MjolnirPages(sending))
         await menu.start(ctx=ctx, channel=ctx.channel)
-
-    async def cog_check(self, ctx: commands.Context):
-        return ctx.guild is not None

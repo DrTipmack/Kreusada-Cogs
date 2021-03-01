@@ -4,8 +4,6 @@ from abc import ABC
 from redbot.core import commands, Config
 from redbot.core.bot import Red
 
-from .decorators import limit_guilds
-
 from .tz import TZ
 from .ceo import CEO
 from .mjolnir import Mjolnir

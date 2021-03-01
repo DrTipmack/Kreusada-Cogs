@@ -12,6 +12,7 @@ TZ_LIST = (
 class TZ(MixinMeta):
     pass
   
+    @limit_guilds()
     @commands.command()
     @commands.mod()
     async def timezoneset(self, ctx, global_time: str):
@@ -30,6 +31,7 @@ class TZ(MixinMeta):
             await ctx.send(f"That doesn't look like a valid timezone. Please check the list.")
 
 
+    @limit_guilds()
     @commands.command()
     @commands.mod()
     async def timezone(self, ctx, member: discord.Member, timezone: str):
