@@ -1,4 +1,3 @@
-import discord
 from redbot.core import  commands
 
 def limit_guilds():
