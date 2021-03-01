@@ -1,9 +1,13 @@
-from redbot.core import  commands
+from redbot.core import commands
+
+allowed = [
+    '0o51252007112140000074',
+    '0o21554327060500400026',
+]
 
 def limit_guilds():
     async def pred(ctx):
         g = ctx.guild.id
-        allowed = ['0o51252007112140000074']
         if oct(g) not in allowed:
             return False
         return True
