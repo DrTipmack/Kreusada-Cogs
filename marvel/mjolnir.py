@@ -3,7 +3,7 @@ import asyncio
 import random
 
 from .abc import MixinMeta
-from .core import limit_guilds
+from .core import Marvel as marvel
 from .menus import MjolnirMenu, MjolnirPages
 
 from redbot.core import commands, Config
@@ -12,12 +12,12 @@ from redbot.core.utils.chat_formatting import pagify
 class Mjolnir(MixinMeta):
     """Attempt to lift Thor's hammer!"""
 
-    @limit_guilds()
+    @marvel.limit_guilds()
     @commands.group()
     async def liftstats(self, ctx):
         """Get the trylift leaderboard, and your stats."""
 
-    @limit_guilds()
+    @marvel.limit_guilds()
     @liftstats.command()
     async def lifted(self, ctx):
         """Shows how many times you've lifted the hammer."""
@@ -28,7 +28,7 @@ class Mjolnir(MixinMeta):
             sending = f"You have lifted Mjolnir {lifted} times."
         await ctx.send(content=sending)
 
-    @limit_guilds()
+    @marvel.limit_guilds()
     @commands.cooldown(1, 60.0, commands.BucketType.user)
     @commands.command()
     async def trylift(self, ctx):
@@ -45,7 +45,6 @@ class Mjolnir(MixinMeta):
                 "You've got this!"))
         await ctx.send(content=content)
 
-    @limit_guilds()
     @liftstats.command()
     async def liftedboard(self, ctx):
         """Shows the leaderboard for those who have lifted the hammer."""

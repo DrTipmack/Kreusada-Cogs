@@ -1,5 +1,5 @@
 from .abc import MixinMeta
-from .core import limit_guilds
+from .core import Marvel as marvel
 
 import discord
 import random
@@ -14,7 +14,7 @@ responses = [
 class CEO(MixinMeta):
     pass
 
-    @limit_guilds()
+    @marvel.limit_guilds()
     @commands.command()
     @commands.cooldown(1, 300, commands.BucketType.user)
     async def ceo(self, ctx):
