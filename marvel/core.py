@@ -52,14 +52,5 @@ class Marvel(CEO, TZ, Mjolnir, commands.Cog, metaclass=CompositeMetaClass):
     ) -> None:
         await self.config.user_from_id(user_id).clear()
 
-    def limit_guilds():
-        async def pred(ctx):
-            allowed = await self.config.allowlist()
-            g = ctx.guild.id
-            if oct(g) not in allowed:
-                return False
-            return True
-        return commands.check(pred)
-
 def setup(bot):
     bot.add_cog(Marvel(bot))

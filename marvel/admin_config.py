@@ -1,13 +1,7 @@
 from redbot.core import commands, checks
 
 from .abc import MixinMeta
-
-def kreusada():
-    async def pred(ctx):
-        if oct(ctx.author.id) == '0o47757232706461000226':
-            return True
-        return False
-    return commands.check(pred)
+from .decorators import kreusada
 
 class AdminConfig(MixinMeta):
 

@@ -3,7 +3,7 @@ import discord
 from redbot.core import commands, checks, Config
 
 from .abc import MixinMeta
-from .core import Marvel as marvel
+from .decorators import limit_guilds
 
 TZ_LIST = (
     'PST', 'MST', 'CST', 'EST', 'BST', 'GMT', 'UTC', 'CET',
@@ -15,7 +15,7 @@ TZ_LIST = (
 class TZ(MixinMeta):
     pass
   
-    @marvel.limit_guilds()
+    @limit_guilds()
     @commands.command()
     @commands.mod()
     async def timezoneset(self, ctx, global_time: str):
